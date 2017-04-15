@@ -1,9 +1,9 @@
 const fs = require("fs");
 const c = require("colors/safe");
-const v = process.argv[2] || "debug-hard";
-fs.writeFileSync("build/env", v);
+const arg = process.argv[2] || "debug-hard";
+fs.writeFileSync("build/env", arg);
 console.log(
-	c.yellow.bold("Switched to:"),
-	c.white.bold.bgBlue(" "+ v +" "),
-	c.yellow.bold("environment.")
+	c.white.bold("Switched to:"),
+	c.black.bgWhite(` ${arg} `),
+	c.white.bold("environment.")
 );
