@@ -1,5 +1,5 @@
 module.exports = [
-	"jquery"
+	"jquery",
 	[
 		"handlebars.runtime"
 	]
