@@ -37,7 +37,8 @@
     "url": "https://github.com/m-ahmadi/sway.git"
   },
   "license": "MIT",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
     "babel-cli": "^6.23.0",
     "babel-preset-env": "^1.2.0",
     "colors": "^1.1.2",
@@ -55,6 +56,5 @@
     "shelljs": "^0.7.7",
     "uglifyjs": "^2.4.10",
     "util-ma": "^1.0.9"
-  },
-  "dependencies": {}
+  }
 }
