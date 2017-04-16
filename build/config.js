@@ -27,9 +27,13 @@ const F = {
 	LINKS:   "links.htm",
 	SCRIPTS: "scripts.htm"
 };
-if (env === DEBUG_HARD || env === DEBUG_NORMAL) {
+if (env === DEBUG_HARD) {
 	F.CSS  += ".css";
 	F.APP  += ".js";
+} else if (env === DEBUG_NORMAL) {
+	F.CSS  += ".css";
+	F.APP  += ".js";
+	F.LIB  += ".min";
 } else {
 	F.CSS  += ".min.css";
 	F.APP  += ".min.js";
