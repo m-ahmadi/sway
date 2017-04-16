@@ -11,7 +11,7 @@
     "sass-w": "gulp sass-w",
     "temp-w": "gulp temp-w",
     "js-w": "gulp js-w",
-    "compile-all": "gulp html && gulp sass && gulp temp && gulp js",
+    "compile-all": "gulp all",
     "livereload": "gulp livereload",
     "env-debug-hard": "node build/setenv debug-hard",
     "env-debug-normal": "node build/setenv debug-normal",
