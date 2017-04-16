@@ -1,43 +1,41 @@
-const CONF = requre("./build/config");
-
+const CONF = require("./build/config");
 const gulp = require("gulp");
 const shell = require("gulp-shell");
+const livereload = require("gulp-livereload");
 
-gulp.task("sass", shell.task([ CONF.CMD.sass ]));
-gulp.task("sass-w", shell.task([ CONF.CMD.sassW ]));
-gulp.task("temp", shell.task([ CONF.CMD.temp ]));
+gulp.task("html", shell.task([ CONF.C.html ]));
+gulp.task("sass", shell.task([ CONF.C.sass ]));
+gulp.task("temp", shell.task([ CONF.C.temp ]));
+gulp.task("js", shell.task([ CONF.C.js ]));
+
+gulp.task("html-w", shell.task([ CONF.C.w.html ]));
+gulp.task("sass-w", shell.task([ CONF.C.w.sass ]));
 gulp.task("temp-w", () => {
 	livereload.listen();
-	gulp.watch(`${CONF.INP.TEMP}/**`, ["temp"]);
+	gulp.watch(`${CONF.I.TEMP}/**`, ["temp"]);
 });
-gulp.task("js", shell.task([ CONF.CMD.js ]));
-gulp.task("js-w", shell.task([ CONF.CMD.jsW ]));
+gulp.task("js-w", shell.task([ CONF.C.w.js ]));
 
-gulp.task( "default", ["sass", "temp", "js"] );
+gulp.task( "default", ["html", "sass", "temp", "js"] );
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // livereload
-const livereload = require("gulp-livereload");
-const changed = require('gulp-changed');
-
 gulp.task("live-html", () => {
-	gulp.src("dist/index.html")
+	gulp.src(CONF.O.HTML)
 		.pipe( livereload() );
 });
 gulp.task("live-css", () => {
-	gulp.src("dist/css/**/*.css")
-	//	.pipe( changed("dist/css/") )
+	gulp.src(`${CONF.O.CSS}**/*.css`)
 		.pipe( livereload() );
 });
 gulp.task("live-js", () => {
-	gulp.src("dist/js/app/**/*.js")
-	//	.pipe( changed("dist/js/app/") )
+	gulp.src(`${CONF.O.JS}**/*.js`)
 		.pipe( livereload() );
 });
 gulp.task("livereload", () => {
 	livereload.listen();
 	
-	gulp.watch("dist/index.html", ["live-html"]);
-	gulp.watch("dist/css/**/*", ["live-css"]);
-	gulp.watch("dist/js/app/**/*", ["live-js"]);
+	gulp.watch(CONF.O.HTML, ["live-html"]);
+	gulp.watch(`${CONF.O.CSS}**/*`, ["live-css"]);
+	gulp.watch(`${CONF.O.JS}**/*`, ["live-js"]);
 });
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
