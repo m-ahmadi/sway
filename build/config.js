@@ -121,7 +121,7 @@ C.w.html = C.html + " -w";
 C.w.sass = sas    + " --watch";
 C.w.js   = C.js   + " -w";
 
-C.all = `${C.html} ${C.sass} ${C.temp} ${C.js}`;
+C.all = `${C.html} && ${C.sass} && ${C.temp} && ${C.js}`;
 
 module.exports = {
 	DEBUG_HARD: DEBUG_HARD,

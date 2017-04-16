@@ -2,6 +2,7 @@
   "name": "Sway",
   "description": "Lowlevel modular frontend framework.",
   "version": "0.0.1",
+  "bin": "index.js",
   "scripts": {
     "html": "gulp html",
     "sass": "gulp sass",
@@ -26,7 +27,7 @@
     "build-debug-hard": "npm run env-debug-hard && npm run build",
     "build-debug-normal": "npm run env-debug-normal && npm run build",
     "build-debug-light": "npm run env-debug-light && npm run build",
-    "build-release-light": "npm run env-release-light && npm run build",
+    "build-release-light": "npm run env-release && npm run build",
     "build-release-hard": "build-release-light && node build/release-hard",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
