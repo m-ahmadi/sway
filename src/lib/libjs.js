@@ -1,4 +1,6 @@
 module.exports = [
 	"jquery"
-	exclude: ["handlebars.runtime"]
+	[
+		"handlebars.runtime"
+	]
 ];
