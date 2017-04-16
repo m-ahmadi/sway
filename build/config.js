@@ -117,7 +117,7 @@ if (shell.exec('sass -v').code !== 0) { // no sass
 C.w = {};
 C.w.html = C.html + " -w";
 C.w.sass = sas    + " --watch";
-C.w.jsW  = C.js   + " -w";
+C.w.js   = C.js   + " -w";
 
 module.exports = {
 	DEBUG_HARD: DEBUG_HARD,
