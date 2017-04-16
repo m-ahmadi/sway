@@ -1,11 +1,11 @@
 require.config({
-	baseUrl: BASE_URL,
+	baseUrl: "js/",
 	paths: {
-		lib: "js/app"
+		lib: "../lib"
 	}
 });
 
-require(["./mediator"], function (page) {
+require(["./mediator"], (page) => {
 	
 	page.beforeReady();
 	
