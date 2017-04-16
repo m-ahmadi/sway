@@ -1,5 +1,5 @@
 {
-  "name": "Sway",
+  "name": "sway",
   "description": "Lowlevel modular frontend framework.",
   "version": "0.0.1",
   "bin": "index.js",
