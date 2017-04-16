@@ -7,7 +7,7 @@ gulp.task("html", shell.task([ CONF.C.html ]));
 gulp.task("sass", shell.task([ CONF.C.sass ]));
 gulp.task("temp", shell.task([ CONF.C.temp ]));
 gulp.task("js", shell.task([ CONF.C.js ]));
-gulp.task("all", shell.task( [Conf.C.all] ));
+gulp.task("all", shell.task( [CONF.C.all] ));
 
 gulp.task("html-w", shell.task([ CONF.C.w.html ]));
 gulp.task("sass-w", shell.task([ CONF.C.w.sass ]));
