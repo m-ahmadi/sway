@@ -1,27 +1,35 @@
-module.exports = {
-	"html": "gulp html",
-	"sass": "gulp sass",
-	"temp": "gulp temp",
-	"js": "gulp js",
-	"html-w": "gulp html-w",
-	"sass-w": "gulp sass-w",
-	"temp-w": "gulp temp-w",
-	"js-w": "gulp js-w",
-	"compile-all": "gulp all",
-	"livereload": "gulp livereload",
-	"env-debug-hard": "node build/setenv debug-hard",
-	"env-debug-normal": "node build/setenv debug-normal",
-	"env-debug-light": "node build/setenv debug-light",
-	"env-release": "node build/setenv release-light",
-	"showenv": "node build/showenv",
-	"libcss": "node build/libs css",
-	"libjs": "node build/libs js",
-	"build-libs": "npm run libcss && npm run libjs",
-	"build": "npm run build-libs && npm run compile-all",
-	"release": "npm-run build-debug-normal && node build/release",
-	"build-debug-hard": "npm run env-debug-hard && npm run build",
-	"build-debug-normal": "npm run env-debug-normal && npm run build",
-	"build-debug-light": "npm run env-debug-light && npm run build",
-	"build-release-light": "npm run env-release && npm run build",
-	"build-release-hard": "build-release-light && node build/release-hard"
-};
+const S = require("path").sep;
+const d = __dirname + S;
+const n = "node " + d;
+const b = n + "build" + S;
+const r = " --color";
+
+const c = {};
+c["html"]        = "gulp html"+r;
+c["sass"]        = "gulp sass"+r;
+c["temp"]        = "gulp temp"+r;
+c["js"]          = "gulp js"+r;
+c["html-w"]      = "gulp html-w"+r;
+c["sass-w"]      = "gulp sass-w"+r;
+c["temp-w"]      = "gulp temp-w"+r;
+c["js-w"]        = "gulp js-w"+r;
+c["compile-all"] = "gulp all"+r;
+c["livereload"]  = "gulp livereload"+r;
+
+c["env-debug-hard"]      = b+"setenv debug-hard"+r;
+c["env-debug-normal"]    = b+"setenv debug-normal"+r;
+c["env-debug-light"]     = b+"setenv debug-light"+r;
+c["env-release"]         = b+"setenv release-light"+r;
+c["showenv"]             = b+"showenv"+r;
+c["libcss"]              = b+"libs css --color"+r;
+c["libjs"]               = b+"libs js --color"+r;
+c["build-libs"]          = c["libcss"]              + " && " + c["libjs"];
+c["build"]               = c["build-libs"]          + " && " + c["compile-all"];
+c["release"]             = c["build-debug-normal"]  + " && " + b+"release"+r;
+c["build-debug-hard"]    = c["env-debug-hard"]      + " && " + c["build"];
+c["build-debug-normal"]  = c["env-debug-normal"]    + " && " + c["build"];
+c["build-debug-light"]   = c["env-debug-light"]     + " && " + c["build"];
+c["build-release-light"] = c["env-release"]         + " && " + c["build"];
+c["build-release-hard"]  = c["build-release-light"] + " && " + b+"release-hard"+r;
+
+module.exports = c;

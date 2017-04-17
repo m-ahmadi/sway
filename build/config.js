@@ -1,6 +1,7 @@
 const fs = require("fs");
+const DS = require("path").sep;
 const shell = require("shelljs");
-let env  = fs.readFileSync("build/env", "utf8");
+let env  = fs.readFileSync(__dirname+DS+ "env", "utf8");
 
 const DEBUG_HARD    = "debug-hard";
 const DEBUG_NORMAL  = "debug-normal";
@@ -67,11 +68,21 @@ O.SEPLJ = O.JLIB;
 O.CLIB += env !== DEBUG_HARD ? F.LIB+".css" : "";
 O.JLIB += env !== DEBUG_HARD ? F.LIB+".js"  : "";
 
-const R    = "../";
+
+/* not gonna work if installed globally
+const R = "../../../";
 const L = {
 	CSS: R + I.LIB + F.CLL,
 	JS:  R + I.LIB + F.JLL
 };
+*/
+// works in local and global
+const R = process.cwd() + DS;
+const L = {
+	CSS: R + `src${DS}lib${DS+ F.CLL}`,
+	JS:  R + `src${DS}lib${DS+ F.CLL}`
+};
+
 
 
 const C = {};

@@ -1,4 +1,5 @@
-const CONF = require("./config");
+const DS = require("path").sep;
+const CONF = require(__dirname+DS+ "config");
 const fs = require("fs-extra");
 const shell = require("shelljs");
 const log = console.log;

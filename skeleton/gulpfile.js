@@ -1,4 +1,6 @@
-const CONF = require("./build/config");
+const DS = require("path").sep;
+const CONF = require("./node_modules"+DS+"sway"+DS+"build"+DS+"config");
+
 const gulp = require("gulp");
 const shell = require("gulp-shell");
 const livereload = require("gulp-livereload");
