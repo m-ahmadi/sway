@@ -80,7 +80,7 @@ const L = {
 const R = process.cwd() + DS;
 const L = {
 	CSS: R + `src${DS}lib${DS+ F.CLL}`,
-	JS:  R + `src${DS}lib${DS+ F.CLL}`
+	JS:  R + `src${DS}lib${DS+ F.JLL}`
 };
 
 
