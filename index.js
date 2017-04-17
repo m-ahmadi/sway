@@ -56,7 +56,8 @@ y.argv;
 
 function run(argv) {
 	let a = argv._[0];
-	shell.env.Path += ";./node_modules/.bin";
+//	shell.env.Path += ";./node_modules/.bin";
+	shell.env.Path += ";"+__dirname+DS+"node_modules"+DS+".bin";
 	if ( shell.exec( cmd[a] ).code !== 0 ) {
 		log( c.red.bold("Shell exec failed!") );
 	}
