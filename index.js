@@ -6,6 +6,8 @@ const DS = path.sep;
 const shell = require("shelljs");
 const y = require("yargs");
 const log = console.log;
+const dir = "./.sway/";
+const pkg = "./package.json";
 
 y.usage("Usage: \n $0 command");
 y.version();
@@ -14,15 +16,7 @@ y.alias("h", "help");
 y.demandCommand(1, "You must specifiy a command to run.");
 y.help("h");
 
-y.command("init", "Initialize new empty project.", {}, (argv) => {
-	if ( !fs.existsSync(__dirname+DS+ "build/inited") ) {
-		fs.copySync(__dirname+DS+ "skeleton", "./");
-		fs.writeFileSync(__dirname+DS+ "build/inited");
-		log( c.green.bold("New empty project initialized.") );
-	} else {
-		log( c.yellow("Already initialized.") );
-	}
-});
+y.command("init", "Initialize new empty project.", {}, init);
 
 y.command("html", "Compile HTML.", {}, run);
 y.command("sass", "Compile Sass.", {}, run);
@@ -50,15 +44,48 @@ y.command("build-debug-light", "Build and compile everything according to debug-
 y.command("build-release-light", "Build and compile everything according to release-light environment.", {}, run);
 y.command("build-release-hard", "Build and compile everything according to release-hard environment.", {}, run);
 
-
+debugger
 var cmd = require("./commands");
 y.argv;
 
 function run(argv) {
 	let a = argv._[0];
-//	shell.env.Path += ";./node_modules/.bin";
-	shell.env.Path += ";"+__dirname+DS+"node_modules"+DS+".bin";
+	shell.env.Path += ";./node_modules/.bin";
+//	shell.env.Path += ";"+__dirname+DS+"node_modules"+DS+".bin";
 	if ( shell.exec( cmd[a] ).code !== 0 ) {
 		log( c.red.bold("Shell exec failed!") );
 	}
+}
+function init(argv) {
+	log( c.magenta("Checking requirements...") );
+	if ( fs.existsSync(pkg) ) {
+		log( "\t The package.json file:", c.green.bold("✔") );
+	} else {
+		log( "\t The package.json file:", c.red.bold("✖") );
+		log( c.magenta("Creating package.json file...") );
+		shell.exec("npm init -f", {silent: true});
+		log( "\t The package.json file:", c.green.bold("✔") );
+	}
+	let o = JSON.parse( fs.readFileSync(pkg, "utf8") );
+	if (o.devDependencies && o.devDependencies.sway &&
+		fs.existsSync("./node_modules/sway/") ) {
+		log( "\t Local dependencies:", c.green.bold("✔") );
+	} else {
+		log( "\t Local dependencies:", c.red.bold("✖") );
+		log( c.magenta("Installing local dependencies... (this might take a while)") );
+		shell.exec("npm install m-ahmadi/sway --save-dev");
+		log( "\t Local dependencies:", c.green.bold("✔") );
+	}
+	log( c.magenta("Initializing project skeleton...") );
+	
+	if ( fs.existsSync(dir) ) {
+		log( "\t", c.red.bold("✖"), c.yellow("already initialized.") );
+	} else {
+		fs.ensureDirSync(dir);
+		fs.copySync(d+ "skeleton/", "./", {overwrite: false});
+		fs.writeFileSync("./.sway/init");
+		fs.writeFileSync("./.sway/env", "debug-normal", "utf8");
+		log( "\t", c.green.bold("✔"), c.green("Successfuly initialized!") );
+	}
+	
 }
