@@ -2,7 +2,6 @@
   "name": "sway",
   "description": "Lowlevel modular frontend framework.",
   "version": "0.0.1",
-  "bin": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
