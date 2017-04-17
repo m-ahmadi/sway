@@ -6,6 +6,7 @@ const DS = path.sep;
 const shell = require("shelljs");
 const y = require("yargs");
 const log = console.log;
+const d = __dirname + DS;
 const dir = "./.sway/";
 const pkg = "./package.json";
 
