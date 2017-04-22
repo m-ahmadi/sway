@@ -8,7 +8,6 @@ define([
 		
 	}
 	
-	inst.beforeReady = beforeReady;
 	inst.init = init;
 	
 	return inst;
