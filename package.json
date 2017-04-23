@@ -19,7 +19,6 @@
     "csso-cli": "^1.0.0",
     "fs-extra": "^2.1.2",
     "gulp": "^3.9.1",
-    "gulp-cli": "^1.2.2",
     "gulp-livereload": "^3.8.1",
     "gulp-shell": "^0.6.3",
     "handlebars": "^4.0.6",
