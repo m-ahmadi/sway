@@ -22,7 +22,7 @@
     "gulp-livereload": "^3.8.1",
     "gulp-shell": "^0.6.3",
     "handlebars": "^4.0.6",
-    "htmlbilder": "latest",
+    "htmlbilder": "m-ahmadi/htmlbilder",
     "line-by-line": "^0.1.5",
     "node-sass": "^4.5.2",
     "requirejs": "^2.3.3",
