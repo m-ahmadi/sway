@@ -1,0 +1,24 @@
+{
+  "name": "Sway-App",
+  "authors": [
+    "mohammad-ahmadi <mohammad.ahmad1989@yahoo.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "^4.0.7",
+    "requirejs": "^2.3.3",
+    "jquery": "^3.2.1",
+    "font-awesome": "^4.7.0"
+  }
+}
