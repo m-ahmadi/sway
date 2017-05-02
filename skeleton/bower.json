@@ -16,9 +16,8 @@
     "tests"
   ],
   "dependencies": {
-    "handlebars": "^4.0.7",
     "requirejs": "^2.3.3",
-    "jquery": "^3.2.1",
-    "font-awesome": "^4.7.0"
+	"jquery": "^3.2.1",
+    "handlebars": "^4.0.7"
   }
 }
