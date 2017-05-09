@@ -18,6 +18,8 @@
   "dependencies": {
     "requirejs": "^2.3.3",
 	"jquery": "^3.2.1",
-    "handlebars": "^4.0.7"
+    "handlebars": "^4.0.7",
+	"pubsub-ma": "*",
+    "util-ma": "*"
   }
 }

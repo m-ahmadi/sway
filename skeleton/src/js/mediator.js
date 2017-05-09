@@ -1,8 +1,6 @@
 define([
-	"core/util",
-	"core/pubsub",
 	"./templates"
-], (u, newPubSub) => {
+], () => {
 	const inst = u.extend( newPubSub() );
 	
 	function addCustomEvts() {
