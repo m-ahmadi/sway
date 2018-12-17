@@ -1,5 +1,5 @@
 {
-  "name": "sway",
+  "name": "sway-ma",
   "description": "Lowlevel modular frontend framework.",
   "version": "0.1.0",
   "scripts": {
@@ -8,7 +8,7 @@
   "author": "Mohammad Ahmadi",
   "repository": {
     "type": "git",
-    "url": "https://github.com/m-ahmadi/sway.git"
+    "url": "https://github.com/m-ahmadi/sway-ma.git"
   },
   "license": "MIT",
   "devDependencies": {},
